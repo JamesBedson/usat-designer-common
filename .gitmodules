@@ -1,0 +1,3 @@
+[submodule "universal_transcoder"]
+	path = universal_transcoder
+	url = git@github.com-personal:JamesBedson/universal_transcoder.git
