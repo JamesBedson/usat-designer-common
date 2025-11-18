@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 import numpy as np
 from universal_transcoder.auxiliars.typing import ArrayLike
