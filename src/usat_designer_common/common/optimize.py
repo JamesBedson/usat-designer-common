@@ -9,7 +9,9 @@ import numpy as np
 from jax import grad
 from scipy.optimize import minimize
 
-from usat_designer.processing.constants import *
+from usat_designer_common.constants.const_optimisation import *
+from usat_designer_common.constants.const_io import *
+from universal_transcoder.auxiliars.typing import ArrayLike
 from universal_transcoder.auxiliars.typing import ArrayLike
 from universal_transcoder.auxiliars.typing import NpArray
 from universal_transcoder.calculations.cost_function import State
