@@ -1,10 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from universal_transcoder.auxiliars.typing import ArrayLike
 from mpl_toolkits.basemap import Basemap
-from usat_designer.processing.constants import *
+from usat_designer_common.constants.const_data import *
 from matplotlib import rcParams
-from matplotlib.colors import LinearSegmentedColormap
 import base64
 from io import BytesIO
 
@@ -46,7 +44,6 @@ def create_standard_figure(figsize=None, dpi=100):
     fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
     return fig, ax
 
-
 def create_base_map(ax, x, y):
     m = Basemap(projection="robin", lon_0=0, resolution="c", ax=ax)
     x_map, y_map = m(x, y)
@@ -61,7 +58,6 @@ def create_base_map(ax, x, y):
         color=DSN_PLT_LINE_COLOUR,
         textcolor=DSN_PLT_TEXT_COLOUR
     )
-
     
     meridians = m.drawmeridians(
         np.arange(0.0, 360.0, 60.0),
