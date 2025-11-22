@@ -7,7 +7,6 @@ version = "0.1.0"
 description = "Common utilities for the USAT Designer Project"
 requires-python = ">=3.9"
 
-# Production / CI dependency on your fork of universal_transcoder
 dependencies = [
     "universal_transcoder @ git+https://github.com/JamesBedson/universal_transcoder.git"
 ]
