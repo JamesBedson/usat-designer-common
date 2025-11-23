@@ -29,8 +29,8 @@ def optimize_for_usat_designer(info: Dict[str, Any]) -> dict:
         info[OPT_PD_SHOW_RESULTS],
         info[OPT_PD_SAVE_RESULTS],
         info[OPT_PD_RESULTS_FILE_NAME],
-    )
-
+    );
+    
     T_optimized = np.array(T_flatten_optimized).reshape(
         current_state.transcoding_matrix_shape
     )
