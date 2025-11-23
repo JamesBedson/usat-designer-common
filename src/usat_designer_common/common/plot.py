@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.basemap import Basemap
-from constants.data import *
+from usat_designer_common.constants.data import *
 from matplotlib import rcParams
 import base64
 from io import BytesIO

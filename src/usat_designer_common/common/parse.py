@@ -16,7 +16,7 @@ from usat_designer_common.constants.opt import *
 from usat_designer_common.constants.io import *
 
 # USAT Designer Core imports
-from usat_designer_common.common.enc_dec import (
+from usat_designer_common.common.enc import (
     create_encoding_matrix,
     get_ambisonics_output,
 )
