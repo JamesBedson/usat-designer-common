@@ -11,12 +11,12 @@ from universal_transcoder.auxiliars.my_coordinates import MyCoordinates
 from universal_transcoder.auxiliars.get_decoder_matrices import get_ambisonics_decoder_matrix
 
 # USAT Designer Common imports
-from constants.data import *
-from constants.opt import *
-from constants.io import *
+from usat_designer_common.constants.data import *
+from usat_designer_common.constants.opt import *
+from usat_designer_common.constants.io import *
 
 # USAT Designer Core imports
-from common.enc_dec import (
+from usat_designer_common.common.enc_dec import (
     create_encoding_matrix,
     get_ambisonics_output,
 )

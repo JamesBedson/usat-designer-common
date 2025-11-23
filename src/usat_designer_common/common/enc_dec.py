@@ -30,6 +30,21 @@ from usat_designer_common.constants.opt import *
 def get_num_ambisonics_channels(order: int) -> int:
     return (order + 1) ** 2
 
+# Path approach is brittle. Refactor requires modifying universal_transcoder package.
+def get_t_design_path(t_design_doc: str) -> Path:
+    basepath = Path(__file__).resolve().parents[3]
+    path_to_t_design = (
+        basepath /
+        "external" /
+        "universal_transcoder" /
+        "src" /
+        "universal_transcoder" /
+        "encoders" /
+        "t-design" /
+        t_design_doc
+    )
+    return path_to_t_design
+
 def get_ambisonics_enc_matrix(order: int, 
                               path_to_t_design: Union[os.PathLike, str]) -> tuple:
 
@@ -40,15 +55,8 @@ def get_ambisonics_enc_matrix(order: int,
 
 
 def get_ambisonics_output(order: int) -> MyCoordinates:
-    basepath = Path(__file__).resolve().parents[2]
-    path_to_t_design = (
-        basepath /
-        "universal_transcoder" /
-        "encoders" /
-        "t-design" /
-        "des.3.60.10.txt"
-    )
-
+    path_to_t_design = get_t_design_path("des.3.60.10.txt")
+    
     list_of_cloud_points = [
         
         get_equi_t_design_points(
@@ -92,16 +100,7 @@ def get_speaker_enc_matrix(speaker_layout: MyCoordinates,
 
 def create_encoding_matrix(format: str, parameter_dict: dict, layout_data: Union[int, MyCoordinates]) -> dict:
 
-    basepath = Path(__file__).resolve().parents[2]
-
-    path_to_t_design = (
-        basepath /
-        "universal_transcoder" /
-        "encoders" /
-        "t-design" /
-        "des.3.56.9.txt"
-    )
-
+    path_to_t_design = get_t_design_path("des.3.56.9.txt")
     cloud_plots = get_all_sphere_points(1, plot_show=False).discard_lower_hemisphere()
 
     if format == DSN_XML_AMBISONICS:

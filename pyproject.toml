@@ -3,7 +3,7 @@ name = "usat_designer_common"
 authors = [
     { name = "James Bedson" }
 ]
-version = "0.1.0"
+version = "0.0.1"
 description = "Common utilities for the USAT Designer Project"
 requires-python = ">=3.9"
 
