@@ -8,9 +8,9 @@ from typing import Dict, Any
 from universal_transcoder.calculations.optimization import bfgs_optim
 from universal_transcoder.calculations.set_up_system import set_up_general
 
-from constants.opt import *
-from constants.io import *
-from constants.data import *
+from usat_designer_common.constants.opt import *
+from usat_designer_common.constants.io import *
+from usat_designer_common.constants.data import *
 
 warnings.filterwarnings("ignore")
 os.environ["JAX_ENABLE_X64"] = "1"
