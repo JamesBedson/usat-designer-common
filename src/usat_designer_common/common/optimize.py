@@ -11,6 +11,7 @@ from universal_transcoder.calculations.set_up_system import set_up_general
 from usat_designer_common.constants.opt import *
 from usat_designer_common.constants.io import *
 from usat_designer_common.constants.data import *
+from usat_designer_common.common.utils import suppress_stdout
 
 warnings.filterwarnings("ignore")
 os.environ["JAX_ENABLE_X64"] = "1"
@@ -23,14 +24,16 @@ def optimize_for_usat_designer(info: Dict[str, Any]) -> dict:
     output_layout = info[OPT_PD_OUTPUT_LAYOUT]
     current_state, T_flatten_initial = set_up_general(info)
 
-    T_flatten_optimized = bfgs_optim(
-        current_state,
-        T_flatten_initial,
-        info[OPT_PD_SHOW_RESULTS],
-        info[OPT_PD_SAVE_RESULTS],
-        info[OPT_PD_RESULTS_FILE_NAME],
-    );
-    
+    # suppress all prints
+    with suppress_stdout():
+        T_flatten_optimized = bfgs_optim(
+            current_state,
+            T_flatten_initial,
+            info[OPT_PD_SHOW_RESULTS],
+            info[OPT_PD_SAVE_RESULTS],
+            info[OPT_PD_RESULTS_FILE_NAME],
+        )
+
     T_optimized = np.array(T_flatten_optimized).reshape(
         current_state.transcoding_matrix_shape
     )
